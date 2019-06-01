@@ -1,6 +1,28 @@
 /*font-family: 'Merriweather', serif;*/
 /*font-family: 'PT Sans Caption', sans-serif;*/
 
+.visually-hidden {
+    /* Удаляем элемент из потока документа */
+    position: absolute;
+    /* Временное решение для неверно произносимого, размазанного текста */
+    white-space: nowrap;
+    /* Устанавливаем минимально возможный размер (некоторые скринридеры игнорируют элементы с нулевой высотой и шириной) */
+    width: 1px;
+    height: 1px;
+    /* Скрываем вылезающий за границы контент */
+    overflow: hidden;
+    /* Сбрасываем любые свойства, которые могут повлиять на размер элемента */
+    border: 0;
+    padding: 0;
+    /* Вырезаем ту часть контента, которая должна отображаться. */
+    /* Устаревшее свойство clip для старых браузеров */
+    clip: rect(0 0 0 0);
+    /* clip-path для новых браузеров. inset(50%) определяет область вставки, которая позволит контенту исчезнуть.  */
+    clip-path: inset(50%);
+    /* Похоже, никто до конца не понимает, почему тут margin: -1px. Кроме того, это приводит к проблемам (читай: https://github.com/h5bp/html5-boilerplate/issues/1985). */
+    margin: -1px;
+}
+
 body {
     font-family: 'PT Sans Caption', sans-serif;
     font-size: 16px;
@@ -11,9 +33,6 @@ body {
     min-width: 280px;
 }
 
-.visually-hidden {
-    display: none;
-}
 
 * {
     box-sizing: border-box;
@@ -30,7 +49,7 @@ body {
 
 /* header */
 
-.main-header {
+.primary-header {
     background: #193b60;
     background-image: url("../img/bg/bg-header.jpg");
     background-repeat: no-repeat;
@@ -49,12 +68,12 @@ body {
     justify-content: center;
 }
 
-.main-header a {
+.primary-header a {
     text-decoration: none;
     color: white;
 }
 
-.header-title {
+.primary-header-title {
     font-size: 56px;
     line-height: 62px;
     margin-bottom: 30px;
@@ -62,12 +81,12 @@ body {
     font-family: 'Merriweather', serif;
 }
 
-.header-slogan {
+.primary-header-slogan {
     font-size: 28px;
     line-height: 42px;
 }
 
-.header-arrow {
+.primary-header-arrow {
     font-size: 26px;
     position: absolute;
     bottom: 20px;
@@ -146,19 +165,19 @@ body {
 
 /* footer */
 
-.main-footer {
+.primary-footer {
     background: #061634;
     color: #6479a2;
     padding-top: 90px;
     padding-bottom: 190px;
 }
 
-.main-footer p {
+.primary-footer p {
     margin-top: 0;
     margin-bottom: 15px;
 }
 
-.footer-column {
+.primary-footer-column {
     list-style-type: none;
     width: 360px;
     margin-right: 30px;
@@ -167,43 +186,43 @@ body {
     padding: 0;
 }
 
-.footer-column:nth-child(3n) {
+.primary-footer-column:nth-child(3n) {
     /*у каждого третьего элемента не будет правого отступа*/
     margin-right: 0px;
 }
 
-.footer-name {
+.primary-footer-name {
     font-size: 28px;
     margin-bottom: 10px;
     line-height: normal;
     font-family: 'Merriweather', serif;
 }
 
-.footer-social {
+.primary-footer-social {
     color: white;
 }
 
-.footer-social-icons {
+.primary-footer-social-icons {
     color: white;
     font-size: 32px;
 }
 
-.footer-social-icons a {
+.primary-footer-social-icons a {
     color: white;
     text-decoration: none;
     margin-right: 30px;
     transition: 0.3s ease-out; /*плавное изменение*/
 }
 
-.footer-social-icons a:last-child {
+.primary-footer-social-icons a:last-child {
     margin-right: 0;
 }
 
-.footer-social-icons a:hover {
+.primary-footer-social-icons a:hover {
     color: #ffe400;
 }
 
-.footer-button {
+.primary-footer-button {
     font-size: 14px;
     font-weight: 700;
     text-decoration: none;
@@ -225,7 +244,7 @@ body {
     transition: 0.3s ease-out; /*плавное изменение*/
 }
 
-.footer-button:hover {
+.primary-footer-button:hover {
     color: #6479a2;
     background: white;
 }
